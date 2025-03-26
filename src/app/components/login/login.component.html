@@ -1,0 +1,50 @@
+<div class="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <h2>Login</h2>
+      
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          formControlName="username" 
+          required
+          [class.invalid]="loginForm.get('username')?.invalid && loginForm.get('username')?.touched"
+        >
+        <div class="error-hint" *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+          Username is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          formControlName="password" 
+          required
+          [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+        >
+        <div class="error-hint" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          Password is required
+        </div>
+      </div>
+      
+      <button 
+        type="submit" 
+        [disabled]="loginForm.invalid || (loading$ | async)"
+      >
+        <span *ngIf="!(loading$ | async)">Login</span>
+        <span *ngIf="loading$ | async">Logging in...</span>
+      </button>
+      
+      <div *ngIf="loginError" class="error-message">
+        {{ errorMessage }}
+      </div>
+      
+      <p class="register-link">
+        Don't have an account? 
+        <a routerLink="/register">Register here</a>
+      </p>
+    </form>
+  </div>

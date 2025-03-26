@@ -1,0 +1,95 @@
+<div class="admin-dashboard">
+    <header class="dashboard-header">
+      <h1>Admin Dashboard</h1>
+      <div class="user-info">
+        <span>Welcome, {{ currentUser?.username }}</span>
+        <button (click)="logout()" class="logout-btn">Logout</button>
+      </div>
+    </header>
+  
+    <div class="dashboard-content">
+      <div class="messages">
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+      </div>
+  
+      <div *ngIf="loading$ | async" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+      </div>
+  
+      <div class="admin-stats" *ngIf="!(loading$ | async)">
+        <div class="stat-card">
+          <h3>Total Users</h3>
+          <p class="stat-number">{{ users.length }}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Roles Distribution</h3>
+          <ul>
+            <li>Admin: {{ getAdminCount() }}</li>
+            <li>User: {{ getUserCount() }}</li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="user-management">
+        <h2>User Management</h2>
+        <div class="table-container" *ngIf="!(loading$ | async)">
+          <table *ngIf="users.length > 0">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <ng-container *ngIf="editingUser?._id !== user._id; else editMode">
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>
+                    <span [class.admin-role]="user.role === 'ADMIN'" [class.user-role]="user.role === 'USER'">
+                      {{ user.role }}
+                    </span>
+                  </td>
+                  <td>
+                    <span [class.status-approved]="user.approved" [class.status-pending]="!user.approved">
+                      {{ user.approved ? 'Approved' : 'Pending' }}
+                    </span>
+                  </td>
+                  <td class="actions">
+                    <button (click)="startEdit(user)" class="edit-btn">Edit</button>
+                    <button (click)="deleteUser(user._id)" class="delete-btn">Delete</button>
+                  </td>
+                </ng-container>
+                <ng-template #editMode>
+                  <td>{{ editingUser?.username }}</td>
+                  <td>{{ editingUser?.email }}</td>
+                  <td>
+                    <select [(ngModel)]="editingUser!.role" name="role" class="role-select">
+                      <option value="USER">User</option>
+                      <option value="ADMIN">Admin</option>
+                    </select>
+                  </td>
+                  <td>
+                    <select [(ngModel)]="editingUser!.approved" name="approved" class="status-select">
+                      <option [ngValue]="true">Approved</option>
+                      <option [ngValue]="false">Pending</option>
+                    </select>
+                  </td>
+                  <td class="actions">
+                    <button (click)="updateUser(editingUser!)" class="save-btn" [disabled]="loading$ | async">Save</button>
+                    <button (click)="cancelEdit()" class="cancel-btn" [disabled]="loading$ | async">Cancel</button>
+                  </td>
+                </ng-template>
+              </tr>
+            </tbody>
+          </table>
+          <p *ngIf="users.length === 0" class="no-users">No users found</p>
+        </div>
+      </div>
+    </div>
+  </div>

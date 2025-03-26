@@ -1,0 +1,290 @@
+.admin-dashboard {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #333;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .user-details {
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  
+  .user-details p {
+    margin: 5px 0;
+    color: #666;
+  }
+  
+  .logout-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .stat-card h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.1em;
+  }
+  
+  .stat-number {
+    font-size: 2em;
+    font-weight: bold;
+    color: #3498db;
+    margin: 0;
+  }
+  
+  .stat-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .stat-card li {
+    padding: 5px 0;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user-management {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  .admin-role, .user-role, .status-approved, .status-pending {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  
+  .admin-role {
+    background-color: #4c6ef5;
+    color: white;
+  }
+  
+  .user-role {
+    background-color: #40c057;
+    color: white;
+  }
+  
+  .status-approved {
+    background-color: #40c057;
+    color: white;
+  }
+  
+  .status-pending {
+    background-color: #ffd43b;
+    color: #495057;
+  }
+  
+  .role-select, .status-select {
+    width: 100%;
+    padding: 6px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: white;
+    color: #495057;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .edit-btn, .save-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .cancel-btn {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    padding: 10px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .success-message {
+    color: #28a745;
+    padding: 10px;
+    background-color: #d4edda;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .no-users {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+  }
+  
+  /* Dark theme adjustments */
+  @media (prefers-color-scheme: dark) {
+    .admin-dashboard {
+      color: #e1e1e1;
+    }
+  
+    .stat-card,
+    .user-management {
+      background: #2d2d2d;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+  
+    .stat-card h3 {
+      color: #e1e1e1;
+    }
+  
+    .stat-number {
+      color: #4dabf7;
+    }
+  
+    th {
+      background-color: #363636;
+      color: #e1e1e1;
+    }
+  
+    td {
+      color: #e1e1e1;
+      border-bottom-color: #404040;
+    }
+  
+    .role-select, .status-select {
+      background-color: #2d2d2d;
+      color: #e1e1e1;
+      border-color: #404040;
+    }
+  
+    .no-users {
+      color: #b0b0b0;
+    }
+  
+    .error-message {
+      background-color: #442326;
+      color: #ff8589;
+    }
+  
+    .success-message {
+      background-color: #1e4620;
+      color: #4ade80;
+    }
+  }
