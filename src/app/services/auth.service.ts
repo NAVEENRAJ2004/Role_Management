@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map, delay, tap, finalize, catchError } from 'rxjs/operators';
 import { User } from '../models/user.model';
+import { environment } from '../../environments/environment';
 
 interface AuthResponse {
   token: string;
@@ -19,7 +20,7 @@ export class AuthService {
   public currentUser$ = this.currentUserSubject.asObservable();
   public loading$ = this.loadingSubject.asObservable();
 
-  private readonly API_URL = 'http://localhost:5000/api';
+  private readonly API_URL = environment.apiUrl;
 
   constructor(private http: HttpClient) {
     // Load stored user on service initialization
