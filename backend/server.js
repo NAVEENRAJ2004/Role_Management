@@ -6,7 +6,8 @@ const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
 
 const app = express();
-
+const cors = require('cors');
+app.use(cors({ origin: '*' }));
 // Middleware
 app.use(cors());
 app.use(express.json());
