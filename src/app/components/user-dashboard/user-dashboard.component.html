@@ -1,13 +1,13 @@
-<!-- src/app/components/user-dashboard/user-dashboard.component.html -->
-<div class="user-dashboard">
-    <header class="dashboard-header">
-      <h1>User Dashboard</h1>
-      <div class="user-info">
-        <span>Welcome, {{ currentUser?.username }}</span>
-        <button (click)="logout()" class="logout-btn">Logout</button>
-      </div>
-    </header>
-  
+
+  <nav class="navbar">
+    <h1>User Dashboard</h1>
+    <div class="user-info">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2TgOv9CMmsUzYKCcLGWPvqcpUk6HXp2mnww&s" alt="Profile" class="profile-pic">
+      <span>Welcome, {{ currentUser?.username }}</span>
+      <button (click)="logout()" class="logout-btn">Logout</button>
+    </div>
+  </nav>
+  <div class="user-dashboard">  
     <div class="dashboard-content">
       <div class="personal-info">
         <div class="info-card">

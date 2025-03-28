@@ -3,9 +3,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: #2c3e50;
+  background-color: #2f2f2f;
   color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(43, 43, 43, 0.1);
 }
 
 .navbar h1 {
@@ -58,14 +58,14 @@
   .user-details {
     margin: 10px 0;
     padding: 10px;
-    background: #f8f9fa;
+    background: #000000;
     border-radius: 4px;
     font-size: 0.9em;
   }
   
   .user-details p {
     margin: 5px 0;
-    color: #666;
+    color: #444444;
   }
   
   .logout-btn {
@@ -74,6 +74,7 @@
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
+    margin-left: 10px;
     cursor: pointer;
     transition: background-color 0.2s;
   }
@@ -115,7 +116,7 @@
     background: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(214, 155, 155, 0.1);
   }
   
   .stat-card h3 {
@@ -139,14 +140,14 @@
   
   .stat-card li {
     padding: 5px 0;
-    color: #666;
+    color: #545454;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
   .user-management {
-    background: white;
+    background: rgb(72, 72, 72);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -161,13 +162,13 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background: white;
+    background: #454545;
   }
   
   th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #000000;
   }
   
   th {

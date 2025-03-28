@@ -6,8 +6,6 @@ const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
 
 const app = express();
-const cors = require('cors');
-app.use(cors({ origin: 'https://mploychek-assignment.vercel.app/' }));
 // Middleware
 app.use(cors());
 app.use(express.json());

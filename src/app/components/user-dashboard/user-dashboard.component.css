@@ -1,33 +1,55 @@
-/* src/app/components/user-dashboard/user-dashboard.component.css */
+
 .user-dashboard {
     background-color: #1e1e1e;
     color: #ffffff;
     min-height: 100vh;
     padding: 20px;
-  }
-  
-  .dashboard-header {
+  } 
+  .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #333;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #2f2f2f;
+    color: white;
+    box-shadow: 0 2px 10px rgba(43, 43, 43, 0.1);
+  }
+  
+  .navbar h1 {
+    margin: 0;
+    font-size: 24px;
   }
   
   .user-info {
     display: flex;
     align-items: center;
-    gap: 15px;
+    margin-right: 30px;
+  }
+  
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 30px;
   }
   
   .logout-btn {
-    background-color: #f44336;
-    color: white;
+    background-color: #e74c3c;
     border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
+    margin-left: 30px;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .admin-dashboard {
+    padding: 20px;
   }
   
   .dashboard-content {
