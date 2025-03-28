@@ -19,7 +19,7 @@ export class AuthService {
   
   public currentUser$ = this.currentUserSubject.asObservable();
   public loading$ = this.loadingSubject.asObservable();
-  private readonly API_URL = 'http://0.0.0.0:5000/api';
+  private readonly API_URL = 'https://0.0.0.0:5000/api';
 
   constructor(private http: HttpClient) {
     const storedUser = localStorage.getItem('currentUser');
