@@ -6,20 +6,26 @@ const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
 
 const app = express();
-const cors = require('cors');
-app.use(cors({ origin: 'https://mploychek-assignment.vercel.app/' }));
-// Middleware
-app.use(cors());
-app.use(express.json());
 
 const allowedOrigins = [
-  'http://localhost:4200', // Local development
-  'https://mploychek-assignment-dz20bmv4p-naveenraj2004s-projects.vercel.app/' // Deployed frontend
+  'http://localhost:4200',
+  'https://mploychek-assignment.vercel.app',
+  'https://mploychek-assignment-dz20bmv4p-naveenraj2004s-projects.vercel.app'
 ];
 
 app.use(cors({
-  origin: allowedOrigins
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
+
+// Middleware
+app.use(express.json());
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)

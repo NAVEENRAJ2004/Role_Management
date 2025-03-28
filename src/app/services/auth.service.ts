@@ -19,7 +19,7 @@ export class AuthService {
   
   public currentUser$ = this.currentUserSubject.asObservable();
   public loading$ = this.loadingSubject.asObservable();
-  private readonly API_URL = 'https://216.24.57.4:8000/api';
+  private readonly API_URL = 'http://216.24.57.4:5000/api';
 
   constructor(private http: HttpClient) {
     const storedUser = localStorage.getItem('currentUser');
@@ -31,28 +31,42 @@ export class AuthService {
 
   private getAuthHeaders(): HttpHeaders {
     const token = localStorage.getItem('token');
-    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
   }
 
   login(username: string, password: string, delayMs: number = 0): Observable<AuthResponse> {
     this.loadingSubject.next(true);
-    return this.http.post<AuthResponse>(`${this.API_URL}/auth/login`, { username, password })
-      .pipe(
-        delay(delayMs),
-        tap(response => {
-          console.log('Login response:', response);
-          if (response && response.token && response.user) {
-            localStorage.setItem('token', response.token);
-            localStorage.setItem('currentUser', JSON.stringify(response.user));
-            this.currentUserSubject.next(response.user);
-          }
-        }),
-        catchError(error => {
-          console.error('Login error:', error);
-          throw error;
-        }),
-        finalize(() => this.loadingSubject.next(false))
-      );
+    return this.http.post<AuthResponse>(`${this.API_URL}/auth/login`, 
+      { username, password },
+      { 
+        headers: this.getAuthHeaders(),
+        withCredentials: true
+      }
+    ).pipe(
+      delay(delayMs),
+      tap(response => {
+        console.log('Login response:', response);
+        if (response && response.token && response.user) {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('currentUser', JSON.stringify(response.user));
+          this.currentUserSubject.next(response.user);
+        }
+      }),
+      catchError(error => {
+        console.error('Login error:', error);
+        if (error.status === 0) {
+          console.error('Network error - please check your connection and server status');
+        } else if (error.status === 401) {
+          console.error('Authentication failed - please check your credentials');
+        }
+        throw error;
+      }),
+      finalize(() => this.loadingSubject.next(false))
+    );
   }
 
   register(username: string, email: string, password: string): Observable<AuthResponse> {

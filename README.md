@@ -1,59 +1,86 @@
-# Mploychek
+# MployChek User Management Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+## Project Overview
+A full-stack web application built with Angular 19 and Node.js, featuring user authentication and management.
 
-## Development server
+## Project Structure
+- Frontend: Angular 19
+- Backend: Express.js
+- Database: MongoDB
 
-To start a local development server, run:
+## Prerequisites
+- Node.js (v18+)
+- npm (v9+)
+- MongoDB
 
+## Installation
+
+### Clone the Repository
 ```bash
-ng serve
+git clone https://github.com/NAVEENRAJ2004/Mpolychek-assignment
+cd mploychek
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Install Dependencies
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Available Scripts
 
+### Run Both Frontend and Backend
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
-
-To build the project run:
-
+### Run Frontend Only
 ```bash
-ng build
+npm run frontend
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+### Run Backend Only
 ```bash
-ng test
+npm run backend
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+### Build the Application
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Key Dependencies
+- Angular Core Packages (v19.2.0)
+- Express.js
+- MongoDB
+- Mongoose
+- bcryptjs (Password Hashing)
+- jsonwebtoken (Authentication)
 
-## Additional Resources
+## Features
+- User Registration
+- Role-based Authentication
+- Secure Password Hashing
+- JWT-based Authorization
+- MongoDB Database Integration
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Development Tools
+- Angular CLI (v19.2.4)
+- TypeScript (v5.7.2)
+- Karma (Testing)
+
+## Deployment
+Easily deployable on Vercel with built-in configuration.
+
+## Environment Setup
+1. Create a `.env` file in the root directory
+2. Add the following variables:
+```
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+```
+
+## Testing
+Run unit tests:
+```bash
+npm test
+`
