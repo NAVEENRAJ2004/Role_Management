@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: #2f3031;
+  background-color: #2f2f2f;
   color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -162,13 +162,13 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background: rgb(66, 66, 66);
+    background: #454545;
   }
   
   th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #eee;
   }
   
   th {
