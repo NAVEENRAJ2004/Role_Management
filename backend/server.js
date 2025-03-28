@@ -10,6 +10,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const allowedOrigins = [
+  'http://localhost:4200', // Local development
+  'https://mploychek-assignment.vercel.app' // Deployed frontend
+];
+
+app.use(cors({
+  origin: allowedOrigins
+}));
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
