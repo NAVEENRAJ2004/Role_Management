@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 const allowedOrigins = [
-  'http://localhost:4200', // Local development
-  'https://mploychek-assignment-dz20bmv4p-naveenraj2004s-projects.vercel.app/' // Deployed frontend
+  'http://localhost:4200',
+  'https://mploychek-assignment.vercel.app'
 ];
 
 app.use(cors({
