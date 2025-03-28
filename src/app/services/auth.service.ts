@@ -22,7 +22,6 @@ export class AuthService {
   private readonly API_URL = 'http://localhost:5000/api';
 
   constructor(private http: HttpClient) {
-    // Load stored user on service initialization
     const storedUser = localStorage.getItem('currentUser');
     const token = localStorage.getItem('token');
     if (storedUser && token) {
