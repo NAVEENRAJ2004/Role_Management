@@ -1,4 +1,4 @@
-# MployChek User Management Application
+# Role Management Application
 
 ## Project Overview
 A full-stack web application built with Angular 19 and Node.js, featuring user authentication and management.
@@ -17,7 +17,7 @@ A full-stack web application built with Angular 19 and Node.js, featuring user a
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/NAVEENRAJ2004/Mpolychek-assignment
+git clone https://github.com/NAVEENRAJ2004/Role_Management
 cd mploychek
 ```
 
